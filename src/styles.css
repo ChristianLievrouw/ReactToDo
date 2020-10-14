@@ -1,0 +1,73 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.Header {
+  background-color: rgb(42, 127, 251);
+  color: rgb(142, 194, 264);
+  text-align: left;
+  padding-left: 30px;
+}
+
+.black-box {
+  background-color: rgb(53, 58, 64);
+  color: white;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  padding: 5px;
+  padding-top: 10px;
+  padding-left: 15px;
+  text-align: left;
+}
+
+.to-do-form {
+  border-style: solid;
+  width: 30%;
+  margin-left: 60px;
+  padding: 15px;
+  border-width: thin;
+  border-color: lightgray;
+  float: left;
+}
+
+.toast {
+  width: 75%;
+  float: right;
+  margin-right: 20%;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(42, 127, 251);
+  color: rgb(142, 194, 264);
+  text-align: left;
+  height: 30px;
+}
+
+nav {
+  margin-top: -30px;
+  margin-right: 5px;
+}
+
+nav ul {
+  /* background-color: blue; */
+  text-align: right;
+}
+
+nav li {
+  display: inline;
+  padding: 5px;
+  background-color: white;
+  border-radius: 15%;
+  border-style: solid;
+}
+
+.active {
+  color: darkblue;
+}
