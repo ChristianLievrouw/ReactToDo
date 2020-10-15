@@ -5,7 +5,7 @@ import Badge from "react-bootstrap/Badge";
 export default function (props) {
   console.log(props);
 
-  const { tasks, onDelete } = props;
+  const { tasks, onDelete, onChange } = props;
 
   return (
     <>
@@ -13,7 +13,7 @@ export default function (props) {
         <Toast key={idx} className="toast" onClose={() => onDelete(idx)}>
           <Toast.Header>
             <strong className="mr-auto">
-              <Badge pill variant={taskItemVariant(task)}>
+              <Badge pill variant={taskItemVariant(task)} onClick={() => onChange(idx)}>
                 {task.complete ? "Complete" : "Pending"}
               </Badge>{" "}
               {task.assigned}

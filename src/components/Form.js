@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
+
 export default function TaskForm(props) {
   const { onSave } = props;
 
@@ -36,6 +37,7 @@ export default function TaskForm(props) {
         />
       </Form.Group>
       <Form.Group controlId="formBasicRange">
+        <Form.Label>Difficulty</Form.Label>
         <Form.Control
           name="difficulty"
           type="range"

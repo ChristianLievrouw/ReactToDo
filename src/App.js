@@ -5,17 +5,23 @@ import { Route, Switch } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import About from "./components/About";
 import Home from "./components/Home";
+import Login from "./components/Login";
+import { useAuth } from "./components/contexts/Auth";
 
 export default function App() {
   return (
     <div className="App">
       <Header />
+      <Login />
       <Switch>
         <Route path="/" exact>
           <Home />
         </Route>
         <Route path="/about">
           <About />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
       </Switch>
       <Footer />
@@ -24,9 +30,11 @@ export default function App() {
 }
 
 function Header() {
+  const { user } = useAuth();
+
   return (
     <div className="Header">
-      <h1>Home</h1>
+      <h1>{user ? `Welcome, ${user.username}` : 'Home'}</h1>
       <Nav />
     </div>
   );

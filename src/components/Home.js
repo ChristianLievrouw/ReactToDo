@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import Form from "./Form";
 import TasksList from "./TasksList";
 import Counter from "./Counter";
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
 
 const defaultTask = [
   {
@@ -29,15 +33,40 @@ export default function Tasks(props) {
     setTasks(tasks.filter((task, idx) => idx !== indexToRemove));
   }
 
+  function toggleComplete(index) {
+    let arr = [];
+    for(let i = 0; i < tasks.length; i++) {
+      arr[i] = tasks[i];
+      if (i === index) {
+        arr[index].complete = !arr[index].complete;
+      }
+      else {
+        arr[i] = tasks[i];
+      }
+    }
+    console.log(arr);
+    setTasks(arr);
+  }
+
   return (
     <div>
       <div className="black-box">
         <h2>
-          To Do List Manager ( <Counter /> )
+          Welcome
         </h2>
       </div>
+      <Container>
+        <Row>
+          <Col md={4}>
       <Form onSave={saveTask} />
-      <TasksList tasks={tasks} onDelete={deleteTask} />
+      </Col>
+      <Col md={2}>
+      </Col>
+      <Col md={6}>
+      <TasksList tasks={tasks} onDelete={deleteTask} onChange={toggleComplete} />
+      </Col>
+      </Row>
+      </Container>
     </div>
   );
 }
