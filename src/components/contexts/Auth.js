@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
 
+
+const usersAPI = "https://deltav-todo.azurewebsites.net/api/v1/Users";
 export const AuthContext = React.createContext();
 
 export function useAuth() {
@@ -9,22 +11,33 @@ export function useAuth() {
 }
 
 export function AuthProvider(props) {
-  const [state, setState] = useState({
+  const [state, setUser] = useState({
     user: null,
 
     login,
     logout,
   });
 
-  function login(username, password) {
-    setState(prevState => ({
-      ...prevState,
-      user: {username},
-    }));
+  async function login(username, password) {
+    const result = await fetch(`${usersAPI}/Login`, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
+    });
+    const resultBody = await result.json();
+
+    if (result.ok) {
+      setUser(resultBody);
+    }
+    else {
+      logout();
   }
+}
 
   function logout() {
-    setState(prevState => ({
+    setUser(prevState => ({
       ...prevState,
       user: null,
     }));

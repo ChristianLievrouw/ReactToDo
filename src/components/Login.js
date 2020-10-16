@@ -22,7 +22,7 @@ export default function Login() {
     e.preventDefault();
     const { username, password } = e.target.elements;
 
-    login(username.value);
+    login(username.value, password.value);
   }
 
   
